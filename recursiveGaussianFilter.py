@@ -73,10 +73,9 @@ def gaussianFilter(I, sigma):
     final = filter1D(filtered.T, ap, bp, an, bn)
     return final.T
 
-sigma = 2
+sigma = 2       #change sigma
 path_to_image = os.getcwd()
-image1 = 'bauckhage.jpg'
-image2 = 'clock.jpg'
+image1 = 'bauckhage.jpg'        #choose your own image
 filename1 = (os.path.join(path_to_image, image1))
 I1 = misc.imread(filename1).astype('float')
 filtered_image = gaussianFilter(I1, sigma)
@@ -87,14 +86,3 @@ plt.subplot(232),plt.imshow(blur, cmap = 'gray')
 plt.title('scipy gaussian filter'), plt.xticks([]), plt.yticks([])    
 plt.subplot(233),plt.imshow(filtered_image, cmap = 'gray')
 plt.title('sigma: ' + str(sigma)), plt.xticks([]), plt.yticks([]) 
-filename2 = (os.path.join(path_to_image, image2))
-I2 = misc.imread(filename2).astype('float')
-blur2 = gaussian_filter(I2,sigma)
-filtered_image2 = gaussianFilter(I2, sigma)
-plt.subplot(234), plt.imshow(I2, cmap = 'gray')
-plt.title('Actual Image'), plt.xticks([]), plt.yticks([]) 
-plt.subplot(235),plt.imshow(blur2, cmap = 'gray')
-plt.title('scipy gaussian filter'), plt.xticks([]), plt.yticks([])    
-plt.subplot(236),plt.imshow(filtered_image2, cmap = 'gray')
-plt.title('sigma: ' + str(sigma)), plt.xticks([]), plt.yticks([]) 
-plt.show()
